@@ -7,7 +7,7 @@ const host = "127.0.0.1";
 const serv = http.createServer((request,result) => {
     result.statusCode = 200
     result.setHeader('Content-Type', 'text/plain')
-    result.end('hello world')
+    result.end("hello world")
 });
 
 serv.listen(port,host, ()=>{
