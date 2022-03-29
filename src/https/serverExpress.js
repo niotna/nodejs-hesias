@@ -1,6 +1,7 @@
 const https = require('https');
 const fs = require('fs');
 const express = require('express');
+const ejs = require('ejs');
 
 const options = {
     key: fs.readFileSync('./certs/key.pem'),
@@ -9,19 +10,32 @@ const options = {
 };
 
 const app = express();
-app.use(express.static('src/mirko'));
+app.set('view engine', 'ejs');
+// app.use(express.static('src/mirko'));
+app.use(express.static('src/https'));
 
 https.createServer(options, app).listen(8080);
+
+app.get('/', (req, res) => {
+    const menu = [
+        "Home",
+        "About",
+        "Services",
+        "Plan"
+    ];
+    res.render(__dirname+'/views/index.ejs', {  menu: menu });
+});
 
 app.get('/hello', (req, res) => {
     res.send('Hello World!');
 });
 
-app.use(function(req, res, next) {
-    res.sendFile("404.html", { root: "src/mirko" });
+app.use((req, res, next) =>{
+    //throw new Error('Error!');
+    res.sendFile(__dirname+"/views/404.ejs");
 });
 
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) =>{
     console.error(err.stack);
-    res.status(500).send('Something broke!');
+    res.sendFile("500.html", { root: "src/mirko" });
 });
