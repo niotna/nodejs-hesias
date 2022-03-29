@@ -4,11 +4,7 @@
   "description": "",
   "scripts": {
     "start": "node src/srvHesias.js",
-    "dev": "nodemon src/srvHesias.js",
-    "dev2": "nodemon src/srvHesias2.js",
-    "dev3": "nodemon src/srvHesiasReadFile.js",
-    "dev4": "nodemon src/srvHesiasReadFilePromise.js",
-    "dev5": "nodemon src/srvHesiasReadFilev3.js",
+    "dev": "nodemon src/old/srvHesiasTpEvent.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
