@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node src/srvHesias.js",
-    "dev": "nodemon src/old/srvHesiasTpEvent.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/https/serverExpress",
+    "dev": "nodemon src/https/serverExpress"
   },
   "repository": {
     "type": "git",
@@ -16,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/antoinechab/nodejs-hesias/issues"
   },
-  "homepage": "https://github.com/antoinechab/nodejs-hesias#readme"
+  "homepage": "https://github.com/antoinechab/nodejs-hesias#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
 }
