@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node src/https/serverExpress",
-    "dev": "nodemon src/https/serverExpress"
+    "start": "node src/rest/serverRest",
+    "dev": "nodemon src/rest/serverRest"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/antoinechab/nodejs-hesias#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "ejs": "^3.1.6",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0"
   },
   "devDependencies": {
     "jest": "^27.5.1"
