@@ -17,16 +17,16 @@ app.use(express.static('src/https'));
 https.createServer(options, app).listen(8080);
 
 const menu = [
-    {"title": "Home", "path": "#header", "under": []},
-    {"title": "About", "path": "#about", "under": []},
-    {"title": "Services", "path": "#services", "under": []},
-    {"title": "Plan", "path": "#plans", "under": []},
+    {"title": "Home", "path": "/#header", "under": []},
+    {"title": "About", "path": "/#about", "under": []},
+    {"title": "Services", "path": "/#services", "under": []},
+    {"title": "Plan", "path": "/#plans", "under": []},
     {"title": "Drop", "path": false, "under": [
         {"title": "Article Details","path": "article"},
         {"title": "Terms Conditions","path": "terms"},
         {"title": "Privacy Policy","path": "privacy"},
     ]},
-    {"title": "Contact", "path": "#contact", "under": []}
+    {"title": "Contact", "path": "/#contact", "under": []}
 ];
 
 const plans = [
