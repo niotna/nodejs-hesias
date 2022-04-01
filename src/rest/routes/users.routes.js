@@ -7,8 +7,10 @@ module.exports = app => {
   router.get("/", users.findAll);
   // Retrieve a single User with id
   router.get("/:id", users.findOne);
-  // Update a User with id
+  // Update an User with id
   router.put("/:id", users.update);
+  // Update partialy an User with id
+  router.patch("/:id", users.patch);
   // Delete a User with id
   router.delete("/:id", users.delete);
   // Delete all Users

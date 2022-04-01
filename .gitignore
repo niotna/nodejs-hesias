@@ -1,2 +1,3 @@
 node_modules
-certs/key.pem
+certs/key.pemsrc/rest/db-data
+src/rest/db-data

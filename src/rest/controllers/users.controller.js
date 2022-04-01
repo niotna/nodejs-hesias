@@ -1,12 +1,10 @@
 const { users } = require("../models");
-const db = require("../models");
+const db = require("../models/index");
 const Users = db.users;
-const Op = db.Sequelize.Op;
 
 // Create and Save a new User
 exports.create = (req, res) => {
     // Validate request
-    console.log(req.body);
     if (!req.body) {
         res.status(400).send({
         message: "Content can not be empty!"
@@ -34,38 +32,37 @@ exports.create = (req, res) => {
 };
 
 // Retrieve all Users from the database.
-exports.findAll = (req, res) => {
-    Users.findAll({ where: true })
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving Users."
-        });
-    });
+exports.findAll = async (req, res) => {
+    try {
+      const users = await Users.findAll()
+      res.send(users);
+    } catch (err) {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Users."
+      });
+    }
 };
 
 // Find a single User with an id
-exports.findOne = (req, res) => {
-    const id = req.params.id;
-    Users.findByPk(id)
-      .then(data => {
-        if (data) {
-          res.send(data);
-        } else {
-          res.status(404).send({
-            message: `Cannot find User with id=${id}.`
-          });
-        }
-      })
-      .catch(err => {
-        res.status(500).send({
-          message: "Error retrieving User with id=" + id
+exports.findOne = async (req, res) => {
+    try {
+      const id = req.params.id;
+      const users = await Users.findByPk(id)
+      if (users) {
+        res.send(users);
+      } else {
+        res.status(404).send({
+          message: `Cannot find User with id=${id}.`
         });
-    });
+      }
+    } catch (err) {
+      res.status(500).send({
+        message: "Error retrieving User with id=" + id
+      });
+    }
 };
+
 // Update a User by the id in the request
 exports.update = (req, res) => {
     const id = req.params.id;
@@ -89,6 +86,31 @@ exports.update = (req, res) => {
         });
     });
 };
+
+// Update partially an User by the id in the request
+exports.patch = (req, res) => {
+    const id = req.params.id;
+    Users.update(req.body, {
+      where: { id: id }
+    })
+      .then(num => {
+        if (num == 1) {
+          res.send({
+            message: "User was patched successfully."
+          });
+        } else {
+          res.send({
+            message: `Cannot patch User with id=${id}. Maybe User was not found or req.body is empty!`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Error patching User with id=" + id
+        });
+    });
+};
+
 // Delete an User with the specified id in the request
 exports.delete = (req, res) => {
     const id = req.params.id;
