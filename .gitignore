@@ -1,3 +1,4 @@
 node_modules
 certs/key.pemsrc/rest/db-data
 src/rest/db-data
+src/chat/node_modules
