@@ -1,0 +1,32 @@
+<%- include('shared/header', {title: title, styleLink: "users.css"}); %>
+<%- include('shared/navigation', {menu: menu}); %>
+
+    <!-- Home -->
+    <section class="home py-5 d-flex align-items-center" id="header">
+        <div class="container text-light py-5"  data-aos="fade-right"> 
+            <h1 class="headline"><span class="home_text">Users</span> list</h1>
+            <div class="d-flex align-items-center" style="flex-direction: column">
+                <table>
+                    <tr>
+                      <th>firstname</th>
+                      <th>lastname</th>
+                      <th>email</th>
+                    </tr>
+                    <% users.forEach((user)=>{ %>
+                        <tr onclick="getDetail('<%= user.id %>')">
+                            <td><%= user.firstname %></td>
+                            <td><%= user.lastname %></td>
+                            <td><%= user.email %></td>
+                        </tr>
+                    <% }); %>
+                  </table>
+            </div>
+        </div> <!-- end of container -->
+    </section> <!-- end of home -->
+
+<script>
+    function getDetail(id) {
+        window.location.href = "/users/" + id;
+    }
+</script>
+<%- include('shared/footer'); %>

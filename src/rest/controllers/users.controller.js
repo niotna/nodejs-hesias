@@ -3,7 +3,7 @@ const db = require("../models/index");
 const Users = db.users;
 
 // Create and Save a new User
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
     // Validate request
     if (!req.body) {
         res.status(400).send({

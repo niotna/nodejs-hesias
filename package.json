@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "node src/web-socket/server",
-    "dev": "nodemon src/web-socket/server"
+    "dev": "nodemon src/api-front/serverFront"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,9 @@
     "cors": "^2.8.5",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "fetch": "^1.1.0",
     "mysql2": "^2.3.3",
+    "node-fetch": "^2.6.7",
     "sequelize": "^6.17.0"
   },
   "devDependencies": {
