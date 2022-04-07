@@ -15,3 +15,6 @@
 
 ## dans web-socket :
 ### le code du web socket qui retourne les images en base64
+
+## dans api-front :
+### le code du front de l'api avec un /users et un /users/:id
