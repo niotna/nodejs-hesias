@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Affichage heure server : WebSocket</title>
+</head>
+<body>
+
+    <canvas width="500" height="500">
+        Désolé, votre navigateur ne prend pas en charge &lt;canvas&gt;.
+    </canvas>
+
+    <script>
+        const HOST = 'ws://localhost:8099'
+        let ws = new WebSocket(HOST);
+
+        ws.onmessage = (message) => {
+            const canvas = document.querySelector('canvas');
+            const ctx = canvas.getContext('2d');
+            const data = message.data;
+            var image = new Image();
+            image.onload = () => {
+                ctx.drawImage(image, 0, 0);
+            };
+            image.src = "data:image/jpg;base64," + data;
+            canvas.width = image.naturalWidth ?? 500;
+            canvas.height = image.naturalHeight ?? 500;
+        };
+    </script>
+</body>
+</html>

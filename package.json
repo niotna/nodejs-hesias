@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node src/rest/serverRest",
-    "dev": "nodemon src/rest/serverRest"
+    "start": "node src/web-socket/server",
+    "dev": "nodemon src/web-socket/server"
   },
   "repository": {
     "type": "git",

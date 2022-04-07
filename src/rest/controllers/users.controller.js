@@ -19,16 +19,15 @@ exports.create = (req, res) => {
       email: req.body.email ?? null
     };
     // Save User in the database
-    Users.create(user)
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the User."
-        });
-    });
+    try {
+      const users = await Users.create(user)
+      res.send(users);
+    } catch (err) {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the User."
+      });
+    }
 };
 
 // Retrieve all Users from the database.
