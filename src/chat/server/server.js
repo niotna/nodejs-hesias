@@ -1,14 +1,13 @@
-
 // Import modules
-let express = require('express');
-let path = require('path');
-let ejs = require('ejs');
+var express = require('express');
+var path = require('path');
+var ejs = require('ejs');
 
 // Create server
-let app = express()
+var app = express()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server);
-let port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 server.listen(port);
 
 // Return index.html for '/'
@@ -22,10 +21,10 @@ app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 app.use('/static', express.static('./client/build'));
 
-let userNumber = 0;
+var userNumber = 0;
 
 io.sockets.on('connection', function (socket) {
-    let signedIn = false;
+    var signedIn = false;
 
     socket.on('newMessage', function (text) {
         io.sockets.emit('newMessage',{

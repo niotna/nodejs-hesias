@@ -10,14 +10,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ajv": "^6.12.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
+    "glob": "^7.2.0",
+    "is-finite": "^1.1.0",
     "jquery": "^3.1.0",
-    "material-ui": "^0.15.4",
+    "material-ui": "^0.15.0",
     "moment": "^2.15.1",
     "node-uuid": "^1.4.7",
-    "react": "^15.3.2",
+    "react": "^18.0.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
@@ -25,8 +28,12 @@
     "redux": "^3.6.0",
     "redux-auth": "0.0.5-beta5",
     "redux-thunk": "^2.1.0",
+    "safe-buffer": "^5.2.1",
+    "schema-utils": "^3.1.1",
     "socket.io": "^1.4.8",
-    "socket.io-client": "^1.4.8"
+    "socket.io-client": "^1.4.8",
+    "terser-webpack-plugin": "^5.3.1",
+    "ua-parser-js": "^0.7.31"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
@@ -37,13 +44,13 @@
     "bootstrap": "^3.3.6",
     "clean-webpack-plugin": "^0.1.10",
     "copy-webpack-plugin": "^3.0.1",
-    "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "css-loader": "^6.7.1",
+    "extract-text-webpack-plugin": "^2.1.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "redux-devtools": "^3.3.1",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.1",
-    "webpack-merge": "^0.14.1"
+    "webpack": "^5.72.0",
+    "webpack-merge": "^5.8.0"
   }
 }
