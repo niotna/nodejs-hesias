@@ -18,3 +18,8 @@
 
 ## dans chat :
 ### le code de la messagerie via web-socket
+```
+npm install
+npm run build
+node server/server.js
+```

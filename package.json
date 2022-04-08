@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node src/web-socket/server",
-    "dev": "nodemon src/api-front/serverFront"
+    "start": "node src/chat/backend/index",
+    "dev": "nodemon src/chat/backend/index"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
     "fetch": "^1.1.0",
     "mysql2": "^2.3.3",
     "node-fetch": "^2.6.7",
-    "sequelize": "^6.17.0"
+    "sequelize": "^6.17.0",
+    "socket.io": "^4.4.1"
   },
   "devDependencies": {
     "jest": "^27.5.1"
