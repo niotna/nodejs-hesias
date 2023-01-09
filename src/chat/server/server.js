@@ -38,7 +38,7 @@ io.sockets.on('connection', function (socket) {
 
         // we store the username in the socket session for this client
         socket.userName = userName;
-        ++userNumber;
+        userNumber++;
         signedIn = true;
 
         io.sockets.emit('userJoined', {
